@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ApiSetSchemaView", "ApiSetSchemaView.vcxproj", "{91352FD7-5569-4D5D-8677-735C8925A3B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91352FD7-5569-4D5D-8677-735C8925A3B8}.Debug|x64.ActiveCfg = Debug|x64
+		{91352FD7-5569-4D5D-8677-735C8925A3B8}.Debug|x64.Build.0 = Debug|x64
+		{91352FD7-5569-4D5D-8677-735C8925A3B8}.Release|x64.ActiveCfg = Release|x64
+		{91352FD7-5569-4D5D-8677-735C8925A3B8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82481A72-5B56-4EC1-98A9-64BB64B2BCDA}
+	EndGlobalSection
+EndGlobal
