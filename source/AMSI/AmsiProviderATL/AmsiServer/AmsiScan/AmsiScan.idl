@@ -1,0 +1,36 @@
+// AmsiScan.idl : IDL source for AmsiScan
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AmsiScan.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(05025dfe-70d5-4b61-a55a-aa21585d4cb2),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IAmsiProvider : IDispatch
+{
+};
+[
+	uuid(508c88ef-ca97-4107-a022-6025892ef192),
+	version(1.0),
+]
+library AmsiScanLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(1c0643e1-5b0a-4420-9b76-0de9264b4c59)
+	]
+	coclass AmsiProvider
+	{
+		[default] interface IAmsiProvider;
+	};
+};
+
+import "shobjidl.idl";

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AmsiScanServer", "AmsiServer\AmsiScan\AmsiScan.vcxproj", "{D131A205-F090-4CF5-8441-32074FE5398E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AmsiScanPS", "AmsiServer\AmsiScanPS\AmsiScanPS.vcxproj", "{19E4CA54-321F-481D-A457-48C4E3F3E85C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D131A205-F090-4CF5-8441-32074FE5398E} = {D131A205-F090-4CF5-8441-32074FE5398E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AmsiClient", "AmsiClient\AmsiClient.vcxproj", "{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Debug|x64.ActiveCfg = Debug|x64
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Debug|x64.Build.0 = Debug|x64
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Debug|x86.ActiveCfg = Debug|Win32
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Debug|x86.Build.0 = Debug|Win32
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Release|x64.ActiveCfg = Release|x64
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Release|x64.Build.0 = Release|x64
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Release|x86.ActiveCfg = Release|Win32
+		{D131A205-F090-4CF5-8441-32074FE5398E}.Release|x86.Build.0 = Release|Win32
+		{19E4CA54-321F-481D-A457-48C4E3F3E85C}.Debug|x64.ActiveCfg = Debug|x64
+		{19E4CA54-321F-481D-A457-48C4E3F3E85C}.Debug|x86.ActiveCfg = Debug|Win32
+		{19E4CA54-321F-481D-A457-48C4E3F3E85C}.Release|x64.ActiveCfg = Release|x64
+		{19E4CA54-321F-481D-A457-48C4E3F3E85C}.Release|x86.ActiveCfg = Release|Win32
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Debug|x64.ActiveCfg = Debug|x64
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Debug|x64.Build.0 = Debug|x64
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Debug|x86.ActiveCfg = Debug|Win32
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Debug|x86.Build.0 = Debug|Win32
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Release|x64.ActiveCfg = Release|x64
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Release|x64.Build.0 = Release|x64
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Release|x86.ActiveCfg = Release|Win32
+		{CDEC113D-ECE3-4F4B-B3FE-01C5E085DA99}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3FB4B87-8F9C-4BDC-BE98-48B9ACE36E15}
+	EndGlobalSection
+EndGlobal

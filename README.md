@@ -2,11 +2,20 @@
 
 ### Miscellaneous Code and Docs
 
-* source\ApiSetSchemaView
-Windows ApiSetSchema Viewer (V2, V4, V6)
+1. source\ApiSetSchemaView
+* Windows ApiSetSchema Viewer (V2, V4, V6)
 
-* source\StripDebug
-Removes debug information left by VisualStudio 2015+
+2. source\StripDebug
+* Removes debug information left by VisualStudio 2015+
+
+3. sources\AMSI
+* AMSI related experiments
+    * sources\AMSI\AmsiProviderATL 
+AMSI provider client/server written in C++ using ATL
+    * sources\AMSI\AmsiProviderC
+AMSI provider server written in C (works with client from ATL version)
+
+
 
 # Authors
 

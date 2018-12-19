@@ -1,0 +1,27 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {1c0643e1-5b0a-4420-9b76-0de9264b4c59} = s 'AmsiProvider'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}
+
+HKLM
+{
+	NoRemove SOFTWARE {
+		NoRemove Microsoft {
+			NoRemove AMSI {
+				NoRemove Providers {
+					ForceRemove {1c0643e1-5b0a-4420-9b76-0de9264b4c59} = s 'AmsiProvider'
+				}
+			}
+		}
+	}
+}
