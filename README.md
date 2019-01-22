@@ -18,6 +18,9 @@ AMSI provider server written in C (works with client from ATL version)
 4. source\ROS\win32u
 * ReactOS win32u (0.4.10, 0.4.12)
 
+5. source\DSEPatch
+* DSE patch based on CI callbacks modification, see dsepatch\readme for more info
+
 
 # Authors
 
