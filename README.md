@@ -21,6 +21,9 @@ AMSI provider server written in C (works with client from ATL version)
 5. source\DSEPatch
 * DSE patch based on CI callbacks modification, see dsepatch\readme for more info
 
+6. source\wdextract
+* Extract Windows Defender database from vdm files and unpack it
+
 
 # Authors
 
