@@ -51,6 +51,9 @@
     <ClCompile Include="minirtl\_strcmpi.c">
       <Filter>minirtl</Filter>
     </ClCompile>
+    <ClCompile Include="minirtl\_strncmpi.c">
+      <Filter>minirtl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ntos.h">

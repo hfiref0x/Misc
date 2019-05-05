@@ -1,12 +1,12 @@
 /*******************************************************************************
 *
-*  (C) COPYRIGHT AUTHORS, 2015 - 2018
+*  (C) COPYRIGHT AUTHORS, 2015 - 2019
 *
 *  TITLE:       TREELIST.H
 *
-*  VERSION:     1.22
+*  VERSION:     1.27
 *
-*  DATE:        18 Nov 2018
+*  DATE:        31 Mar 2019
 *
 *  Tree-List custom control header file.
 *
@@ -40,6 +40,7 @@
 #define TLF_FONTCOLOR_SET		0x02
 
 #define TLSTYLE_COLAUTOEXPAND	0x01
+#define TLSTYLE_LINKLINES       0x02
 
 typedef struct _TL_SUBITEMS {
     ULONG		ColorFlags;
@@ -52,8 +53,14 @@ typedef struct _TL_SUBITEMS {
 
 ATOM InitializeTreeListControl();
 
+#define TreeList_GetTreeControlWindow(hwnd) \
+    (HWND)GetWindowLongPtr(hwnd, TL_TREECONTROL_SLOT)
+
 #define TreeList_GetTreeItem(hwnd, lpitem, subitems) \
     (BOOL)SNDMSG((hwnd), TVM_GETITEM, (WPARAM)(LPTVITEMEX)(lpitem), (LPARAM)(PTL_SUBITEMS *)(subitems))
+
+#define TreeList_SetTreeItem(hwnd, lpitem, subitems) \
+    (BOOL)SNDMSG((hwnd), TVM_SETITEM, (WPARAM)(LPTVITEMEX)(lpitem), (LPARAM)(PTL_SUBITEMS *)(subitems))
 
 #define TreeList_InsertTreeItem(hwnd, lpis, subitems) \
     (HTREEITEM)SNDMSG((hwnd), TVM_INSERTITEM, (WPARAM)(LPTV_INSERTSTRUCT)(lpis), (LPARAM)(PTL_SUBITEMS)(subitems))
@@ -78,6 +85,9 @@ ATOM InitializeTreeListControl();
 
 #define TreeList_GetNextItem(hwnd, hitem, code) \
     (HTREEITEM)SNDMSG((hwnd), TVM_GETNEXTITEM, (WPARAM)(code), (LPARAM)(HTREEITEM)(hitem))
+
+#define TreeList_SetImageList(hwnd, himl, iImage) \
+    (HIMAGELIST)SNDMSG((hwnd), TVM_SETIMAGELIST, iImage, (LPARAM)(HIMAGELIST)(himl))
 
 #define TreeList_GetChild(hwnd, hitem)          TreeList_GetNextItem(hwnd, hitem, TVGN_CHILD)
 #define TreeList_GetNextSibling(hwnd, hitem)    TreeList_GetNextItem(hwnd, hitem, TVGN_NEXT)

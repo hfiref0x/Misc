@@ -4,9 +4,9 @@
 *
 *  TITLE:       MAIN.C
 *
-*  VERSION:     1.00.1
+*  VERSION:     1.00.2
 *
-*  DATE:        19 Nov 2018
+*  DATE:        03 May 2019
 *
 *  ApiSetSchema Viewer.
 *
@@ -37,7 +37,7 @@
 #endif
 
 #if defined (_MSC_VER)
-#if (_MSC_VER >= 1910)
+#if (_MSC_VER >= 1900)
 #ifdef _DEBUG
 #pragma comment(lib, "vcruntimed.lib")
 #pragma comment(lib, "ucrtd.lib")
@@ -211,8 +211,6 @@ void OutNamespaceValueEx(
 
             sptr = AliasName;
 
-            //TreeList_Expand(g_ctx.ListWnd, RootItem, TVE_EXPAND);
-
         }
     }
     else {
@@ -302,7 +300,7 @@ BOOL InitTreeList(
     GetClientRect(hwndParent, &rc);
     TreeListAtom = InitializeTreeListControl();
     TreeList = CreateWindowEx(WS_EX_CLIENTEDGE, WC_TREELIST, NULL,
-        WS_VISIBLE | WS_CHILD | WS_TABSTOP | TLSTYLE_COLAUTOEXPAND, 10, 10,
+        WS_VISIBLE | WS_CHILD | WS_TABSTOP | TLSTYLE_COLAUTOEXPAND | TLSTYLE_LINKLINES, 10, 10,
         rc.right - 20, rc.bottom - 100, hwndParent, NULL, NULL, NULL);
 
     if (TreeList == NULL) {
@@ -541,24 +539,19 @@ VOID ListApiSetFromFile()
     BaseAddress = (PBYTE)(((ULONG_PTR)MappedImageBase) & ~3);
 
     NtHeaders = RtlImageNtHeader(BaseAddress);
-
-    SectionTableEntry = (PIMAGE_SECTION_HEADER)((PCHAR)NtHeaders +
-        sizeof(ULONG) +
-        sizeof(IMAGE_FILE_HEADER) +
-        NtHeaders->FileHeader.SizeOfOptionalHeader);
+    
+    SectionTableEntry = IMAGE_FIRST_SECTION(NtHeaders);
 
     i = NtHeaders->FileHeader.NumberOfSections;
     while (i > 0) {
-        if (*(PULONG)SectionTableEntry->Name == 'ipa.')
-            if ((SectionTableEntry->Name[4] == 's') &&
-                (SectionTableEntry->Name[5] == 'e') &&
-                (SectionTableEntry->Name[6] == 't') &&
-                (SectionTableEntry->Name[7] == 0))
-            {
-                DataSize = SectionTableEntry->SizeOfRawData;
-                DataPtr = (PBYTE)BaseAddress + SectionTableEntry->PointerToRawData;
-                break;
-            }
+        if (_strncmpi_a((CHAR*)&SectionTableEntry->Name, 
+            API_SET_SECTION_NAME, 
+            sizeof(API_SET_SECTION_NAME)) == 0)
+        {
+            DataSize = SectionTableEntry->SizeOfRawData;
+            DataPtr = (PBYTE)BaseAddress + SectionTableEntry->PointerToRawData;
+            break;
+        }
         i -= 1;
         SectionTableEntry += 1;
     }
