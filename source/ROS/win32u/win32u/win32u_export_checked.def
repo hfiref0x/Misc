@@ -665,6 +665,11 @@ NtGdiSetPUMPDOBJ
 NtGdiBRUSHOBJ_DeleteRbrush
 NtGdiUMPDEngFreeUserMem
 NtGdiDrawStream
+NtUserDbgWin32HeapFail
+NtUserDbgWin32HeapStat
+NtUserSetDbgTag
+NtUserSetDbgTagCount
+NtUserSetRipFlags
 NtGdiMakeObjectXferable
 NtDxEngGetRedirectionBitmap
 NtGdiSetViewportOrgEx

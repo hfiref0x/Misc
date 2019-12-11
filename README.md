@@ -19,7 +19,7 @@ AMSI provider server written in C (works with client from ATL version)
 source\ROS
 * ReactOS related code
     * sources\ROS\win32u
- ReactOS win32u dll (0.4.10 - 0.4.14)
+ ReactOS win32u dll (0.4.10 - 0.4.14, both checked/free)
     * sources\ROS\srvany2
 Run application as service
 
@@ -28,6 +28,9 @@ source\DSEPatch
 
 source\wdextract (for a more advanced version visit https://github.com/hfiref0x/wdextract)
 * Extract Windows Defender database from vdm files and unpack it
+
+# Build
+Most of the code requires Microsoft Visual Studio 2015 and later versions to compile and SDK version 8.1/10
 
 
 # Authors
