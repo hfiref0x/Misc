@@ -16,6 +16,9 @@ AMSI provider client/server written in C++ using ATL
     * sources\AMSI\AmsiProviderC
 AMSI provider server written in C (works with client from ATL version)
 
+source\IntelNal
+* Intel QV Linux kernel driver (upload for quick references)
+
 source\ROS
 * ReactOS related code
     * sources\ROS\win32u

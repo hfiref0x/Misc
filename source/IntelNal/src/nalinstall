@@ -1,0 +1,49 @@
+#!/bin/sh
+
+#  Copyright(c) 1999 - 2013 Intel Corporation. All rights reserved.
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of version 2 of the GNU General Public License as
+# published by the Free Software Foundation.
+#
+#  This program is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
+#  The full GNU General Public License is included in this distribution
+#  in the file called LICENSE.GPL.
+#
+#  Contact Information:
+#  e1000-devel Mailing List <e1000-devel@lists.sourceforge.net>
+#  Intel Corporation, 5200 N.E. Elam Young Parkway, Hillsboro, OR 97124-6497
+
+if [ "$1" = "" ] 
+then
+    SOURCE_DIR=$PWD
+else
+    SOURCE_DIR=$1
+fi
+
+MachineType=$(uname -i)
+KernelVersion=$(uname -r)
+
+K_VERSION=`uname -r| cut -c1-3 | sed 's/2\.[56]/2\.6/'`
+
+DriverName=iqvlinux
+if [ "$K_VERSION" = "2.4" ]
+then
+    DriverFileName=$DriverName.o
+else
+    DriverFileName=$DriverName.ko
+fi
+
+rm -f /lib/modules/$KernelVersion/kernel/drivers/net/$DriverFileName
+cp $SOURCE_DIR/$DriverFileName /lib/modules/$KernelVersion/kernel/drivers/net
+# Install the node and driver
+echo "Try and unload the old driver..."
+rmmod -s $DriverName
+echo "Installed!!"

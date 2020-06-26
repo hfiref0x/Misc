@@ -1,0 +1,6 @@
+config INTEL_IQVANDROID
+        tristate "iqvandroid kernel driver for BYT MFG tools"
+        default n
+        help
+           Select this module for support BYT MFG tools.
+
