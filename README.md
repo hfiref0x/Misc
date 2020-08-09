@@ -26,6 +26,9 @@ source\ROS
     * sources\ROS\srvany2
 Run application as service
 
+source\SecTrash
+* Various AV/Security bugs and related trash found in the beginning of 2020
+
 source\DSEPatch
 * DSE patch based on CI callbacks modification, see dsepatch\readme for more info
 
@@ -35,4 +38,4 @@ source\wdextract (for a more advanced version visit https://github.com/hfiref0x/
 
 # Authors
 
-(c) 2015 - 2019, hfiref0x
+(c) 2015 - 2020, hfiref0x
