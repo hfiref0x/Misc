@@ -30,7 +30,7 @@ source\SecTrash
 * Various AV/Security bugs and related trash found in the beginning of 2020
 
 source\WormholeDrivers
-* Collection of "wormhole" open source drivers widely used by hardware vendors sometimes in unmodified state.
+* Collection of "wormhole" open source drivers widely used by hardware vendors sometimes in unmodified state
 
 source\DSEPatch
 * DSE patch based on CI callbacks modification, see dsepatch\readme for more info
@@ -40,5 +40,6 @@ source\wdextract (for a more advanced version visit https://github.com/hfiref0x/
 
 
 # Authors
-
-(c) 2015 - 2020, hfiref0x
+(c) Intel QV authors
+(c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
+(c) 2015 - 2021, hfiref0x
