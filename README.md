@@ -29,6 +29,9 @@ Run application as service
 source\SecTrash
 * Various AV/Security bugs and related trash found in the beginning of 2020
 
+source\WormholeDrivers
+* Collection of "wormhole" open source drivers widely used by hardware vendors sometimes in unmodified state.
+
 source\DSEPatch
 * DSE patch based on CI callbacks modification, see dsepatch\readme for more info
 

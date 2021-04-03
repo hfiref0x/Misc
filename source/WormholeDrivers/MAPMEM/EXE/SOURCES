@@ -1,0 +1,11 @@
+
+TARGETNAME=maptest
+TARGETPATH=$(BASEDIR)\lib
+TARGETTYPE=PROGRAM
+
+INCLUDES=..\sys;$(BASEDIR)\src\video\inc
+
+SOURCES=maptest.c
+
+UMTYPE=console
+UMBASE=0x100000

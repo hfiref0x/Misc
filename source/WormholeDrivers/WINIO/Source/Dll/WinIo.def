@@ -1,0 +1,11 @@
+EXPORTS
+InitializeWinIo
+ShutdownWinIo
+MapPhysToLin
+UnmapPhysicalMemory
+GetPhysLong
+SetPhysLong
+GetPortVal
+SetPortVal
+InstallWinIoDriver
+RemoveWinIoDriver
