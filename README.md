@@ -40,6 +40,6 @@ source\wdextract (for a more advanced version visit https://github.com/hfiref0x/
 
 
 # Authors
-(c) Intel QV authors
-(c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
-(c) 2015 - 2021, hfiref0x
+* (c) Intel QV authors
+* (c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
+* (c) 2015 - 2021, hfiref0x
