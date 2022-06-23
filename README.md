@@ -38,8 +38,10 @@ source\DSEPatch
 source\wdextract (for a more advanced version visit https://github.com/hfiref0x/wdextract)
 * Extract Windows Defender database from vdm files and unpack it
 
+source\DrvTools
+* Auxiliary utility to work with Windows Drivers
 
 # Authors
 * (c) Intel QV authors
 * (c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
-* (c) 2015 - 2021, hfiref0x
+* (c) 2015 - 2022, hfiref0x
