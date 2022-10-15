@@ -6,7 +6,7 @@
 *
 *  VERSION:     1.00
 *
-*  DATE:        27 Mar 2022
+*  DATE:        15 Oct 2022
 *
 *  MainForm implementation.
 *
@@ -27,7 +27,7 @@ interface
 uses
   Windows, ShellApi, Classes, SysUtils, Forms, Controls, Graphics,
   Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, EditBtn, Spin, Buttons, LazFileUtils, scmsup, nativesup, Types;
+  ExtCtrls, Spin, Buttons, LazFileUtils, scmsup, nativesup, Types;
 
 type
 
@@ -179,7 +179,7 @@ const
 const
   PROGRAM_VERSION_MAJOR = 1;
   PROGRAM_VERSION_MINOR = 0;
-  PROGRAM_VERSION_BUILD = 2205;
+  PROGRAM_VERSION_BUILD = 2210;
   PROGRAM_COMPILER = 'Lazarus FPC v';
 
 var

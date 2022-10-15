@@ -1426,15 +1426,15 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnDropFiles = FormDropFiles
   Position = poDesktopCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.4.0'
   object PageControl1: TPageControl
     Left = 0
     Height = 471
     Top = 0
     Width = 606
-    ActivePage = AboutSheet
+    ActivePage = ScmTabSheet
     Align = alClient
-    TabIndex = 4
+    TabIndex = 0
     TabOrder = 0
     object ScmTabSheet: TTabSheet
       Caption = 'SCM'
@@ -1498,7 +1498,7 @@ object MainForm: TMainForm
           Left = 10
           Height = 15
           Top = 88
-          Width = 55
+          Width = 54
           Caption = 'Start Type:'
           ParentColor = False
         end
@@ -1720,7 +1720,7 @@ object MainForm: TMainForm
           Left = 10
           Height = 15
           Top = 88
-          Width = 55
+          Width = 54
           Caption = 'Start Type:'
           ParentColor = False
         end
@@ -1987,7 +1987,7 @@ object MainForm: TMainForm
               Left = 8
               Height = 15
               Top = 0
-              Width = 63
+              Width = 62
               Caption = 'Device Type'
               ParentColor = False
             end
@@ -2934,7 +2934,7 @@ object MainForm: TMainForm
         Left = 96
         Height = 15
         Top = 8
-        Width = 206
+        Width = 205
         Caption = 'Driver Tools for Windows 7/8/8.1/10/11'
         ParentColor = False
       end
@@ -2942,7 +2942,7 @@ object MainForm: TMainForm
         Left = 96
         Height = 15
         Top = 40
-        Width = 220
+        Width = 219
         Caption = '(c) 2021-2022 Driver Tools Project Authors'
         ParentColor = False
       end
@@ -2950,7 +2950,7 @@ object MainForm: TMainForm
         Left = 96
         Height = 15
         Top = 66
-        Width = 277
+        Width = 276
         Caption = 'This program is freeware. You use it at your own risk.'
         ParentColor = False
       end

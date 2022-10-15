@@ -979,7 +979,7 @@ begin
     begin
       //optional param, we do not check API result
       RegSetValueExW(keyHandle, 'DisplayName', 0, REG_SZ,
-        DisplayName, StrLen(DisplayName) + 1);
+        DisplayName, (StrLen(DisplayName) + 1) * sizeof(WCHAR));
     end;
 
     if (ImagePath <> nil) then
