@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 406
+  Left = 845
   Height = 694
-  Top = 134
+  Top = 141
   Width = 606
   AllowDropFiles = True
   Caption = 'Driver Tools'
@@ -3072,6 +3072,12 @@ object MainForm: TMainForm
         Top = 0
         Width = 598
         Align = alClient
+        Font.CharSet = 4
+        Font.Name = 'Consolas'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        ParentFont = False
+        PopupMenu = PopupMenu1
         ReadOnly = True
         ScrollBars = ssBoth
         TabOrder = 0
@@ -3089,5 +3095,13 @@ object MainForm: TMainForm
     Options = [ofOverwritePrompt, ofPathMustExist, ofEnableSizing, ofViewDetail]
     Left = 88
     Top = 504
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 160
+    Top = 505
+    object MenuItem1: TMenuItem
+      Caption = 'Clear log'
+      OnClick = MenuItem1Click
+    end
   end
 end

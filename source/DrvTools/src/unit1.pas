@@ -27,7 +27,7 @@ interface
 uses
   Windows, ShellApi, Classes, SysUtils, Forms, Controls, Graphics,
   Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, Spin, Buttons, LazFileUtils, scmsup, nativesup, Types;
+  ExtCtrls, Spin, Buttons, Menus, LazFileUtils, scmsup, nativesup, Types;
 
 type
 
@@ -91,6 +91,8 @@ type
     Label13: TLabel;
     Label14: TLabel;
     Label15: TLabel;
+    MenuItem1: TMenuItem;
+    PopupMenu1: TPopupMenu;
     VersionLabel: TLabel;
     Label17: TLabel;
     Label18: TLabel;
@@ -155,6 +157,7 @@ type
     procedure IoctlSheetShow(Sender: TObject);
     procedure ListViewPrivSetMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
+    procedure MenuItem1Click(Sender: TObject);
     procedure NativeTabSheetHide(Sender: TObject);
     procedure NativeTabSheetShow(Sender: TObject);
     procedure OptionsSheetShow(Sender: TObject);
@@ -401,7 +404,9 @@ end;
 
 procedure TMainForm.ButtonOpenFileClick(Sender: TObject);
 var
-  drvNameNotExt, drvName: string;
+  drvNameNoExt, drvName, oldName: string;
+  cbStartType, cbErrorControl: TComboBox;
+  editFile, editName, editDisplayName: TEdit;
 begin
   if (PageControl1.ActivePage <> ScmTabSheet) and
     (PageControl1.ActivePage <> NativeTabSheet) then
@@ -413,27 +418,39 @@ begin
   OpenDialog1.DefaultExt := DefaultExt;
   if OpenDialog1.Execute() then
   begin
-
     drvName := ExtractFileName(OpenDialog1.FileName);
-    drvNameNotExt := ExtractFileNameWithoutExt(drvName);
+    drvNameNoExt := ExtractFileNameWithoutExt(drvName);
 
     if (PageControl1.ActivePage = ScmTabSheet) then
     begin
-      EditScmFileName.Text := OpenDialog1.FileName;
-      if (EditScmDisplayName.Text = '') then
-        EditScmDisplayName.Text := drvName;
-      if (EditScmName.Text = '') then
-        EditScmName.Text := drvNameNotExt;
+      oldName := EditScmFileName.Text;
+      cbStartType := ComboBoxScmStartType;
+      cbErrorControl := ComboBoxScmErrorControl;
+      editFile := EditScmFileName;
+      editName := EditScmName;
+      editDisplayName := EditScmDisplayName;
     end
     else
     if (PageControl1.ActivePage = NativeTabSheet) then
     begin
-      EditNativeFileName.Text := OpenDialog1.FileName;
-      if (EditNativeDisplayName.Text = '') then
-        EditNativeDisplayName.Text := drvName;
-      if (EditNativeName.Text = '') then
-        EditNativeName.Text := drvNameNotExt;
+      oldName := EditNativeFileName.Text;
+      cbStartType := ComboBoxNativeStartType;
+      cbErrorControl := ComboBoxNativeErrorControl;
+      editFile := EditNativeFileName;
+      editName := EditNativeName;
+      editDisplayName := EditNativeDisplayName;
     end;
+
+    oldName := editFile.Text;
+    if (OpenDialog1.FileName <> oldName) then
+    begin
+      cbStartType.ItemIndex := 3;
+      cbErrorControl.ItemIndex := 0;
+    end;
+
+    editFile.Text := OpenDialog1.FileName;
+    editName.Text := drvNameNoExt;
+    editDisplayName.Text := drvName;
 
   end;
 end;
@@ -1273,6 +1290,11 @@ begin
           end;
         end;
     end;
+end;
+
+procedure TMainForm.MenuItem1Click(Sender: TObject);
+begin
+  MemoLog.Clear();
 end;
 
 procedure TMainForm.NativeTabSheetHide(Sender: TObject);

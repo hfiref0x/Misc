@@ -4,9 +4,9 @@
 *
 *  TITLE:       nativesup.pas
 *
-*  VERSION:     1.01
+*  VERSION:     1.02
 *
-*  DATE:        27 Mar 2022
+*  DATE:        15 Oct 2022
 *
 *  Windows Native API support routines.
 *  ObjFPC variant, based on Win32Pascal WinNative of v1.43
