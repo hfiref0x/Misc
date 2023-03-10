@@ -44,4 +44,4 @@ source\DrvTools
 # Authors
 * (c) Intel QV authors
 * (c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
-* (c) 2015 - 2022, hfiref0x
+* (c) 2015 - 2023, hfiref0x

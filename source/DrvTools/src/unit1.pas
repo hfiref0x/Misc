@@ -1,12 +1,12 @@
 {*******************************************************************************
 *
-*  (C) COPYRIGHT AUTHORS, 2021 - 2022
+*  (C) COPYRIGHT AUTHORS, 2021 - 2023
 *
 *  TITLE:       Unit1.pas
 *
 *  VERSION:     1.00
 *
-*  DATE:        15 Oct 2022
+*  DATE:        13 Mar 2023
 *
 *  MainForm implementation.
 *
@@ -182,7 +182,7 @@ const
 const
   PROGRAM_VERSION_MAJOR = 1;
   PROGRAM_VERSION_MINOR = 0;
-  PROGRAM_VERSION_BUILD = 2210;
+  PROGRAM_VERSION_BUILD = 2303;
   PROGRAM_COMPILER = 'Lazarus FPC v';
 
 var
@@ -523,52 +523,52 @@ begin
 end;
 
 procedure TMainForm.ShowStatus(Status: DWORD);
-var
-  lpMsgBuf: HLOCAL;
-  l: ULONG;
 begin
-  lpMsgBuf := 0;
-
-  l := FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER or FORMAT_MESSAGE_FROM_SYSTEM,
-    nil, Status, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), PChar(@lpMsgBuf), 0, nil);
-
-  if (l <> 0) then
-  begin
-    PrintToLog(Format('Error code: %d', [Status]) + Format(' [0x%x]', [Status]));
-    PrintToLog(PChar(lpMsgBuf));
-    LocalFree(lpMsgBuf);
-  end;
-
+  PrintToLog(Format('Error code: %d', [Status]) + Format(' [0x%x]', [Status]));
+  PrintToLog(SysErrorMessage(Status));
 end;
 
 procedure TMainForm.ShowStatus(Status: NTSTATUS);
 var
-  lpMsgBuf: HLOCAL;
-  r, l: ULONG;
+  Buffer: PWideChar;
+  dwMessageId, Length, dwFlags: ULONG;
   hDll: HMODULE;
+  s: UnicodeString;
 begin
-  lpMsgBuf := 0;
+  Buffer := nil;
 
-  r := Status and FACILITY_NT_BIT;
+  dwMessageId := Status and FACILITY_NT_BIT;
 
   // hr to exception
-  if (r <> 0) then
-    r := DWORD(Status and not FACILITY_NT_BIT)
+  if (dwMessageId <> 0) then
+    dwMessageId := DWORD(Status and not FACILITY_NT_BIT)
   else
-    r := DWORD(Status);
+    dwMessageId := DWORD(Status);
+
+  dwFlags := FORMAT_MESSAGE_ALLOCATE_BUFFER or FORMAT_MESSAGE_FROM_HMODULE;
 
   hDll := GetModuleHandle(ntdll);
-  l := FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER or
-    FORMAT_MESSAGE_FROM_HMODULE, LPCVOID(hDll), r,
-    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), PChar(@lpMsgBuf), 0, nil);
+  Length := FormatMessageW(
+                    dwFlags,
+                    LPCVOID(hDll),
+                    dwMessageId,
+                    0,
+                    @Buffer,
+                    0,
+                    nil);
 
-  if (l <> 0) then
-  begin
-    PrintToLog(Format('Error code: %d', [Status]) + Format(' [0x%x]', [Status]));
-    PrintToLog(PChar(lpMsgBuf));
-    LocalFree(lpMsgBuf);
+  try
+     while (Length > 0) and ((Buffer[Length - 1] <= WideChar(#32)) or
+       (Buffer[Length - 1] = WideChar('.'))) do Dec(Length);
+
+     SetString(s, Buffer, Length);
+
+     PrintToLog(Format('Error code: %d', [Status]) + Format(' [0x%x]', [Status]));
+     PrintToLog(string(s));
+
+  finally
+    LocalFree(HLOCAL(Buffer));
   end;
-
 end;
 
 procedure TMainForm.ButtonNativeInstallClick(Sender: TObject);
