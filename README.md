@@ -2,6 +2,11 @@
 
 ### Miscellaneous Code and Docs
 
+docs
+* docs (mostly for historical purposes)
+
+bin
+* compiled versions of the some tools listed below
 
 source\ApiSetSchemaView
 * Windows ApiSetSchema Viewer (V2, V4, V6)
@@ -42,6 +47,7 @@ source\DrvTools
 * Auxiliary utility to work with Windows Drivers
 
 # Authors
+* (c) Daniloff & Co 
 * (c) Intel QV authors
 * (c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
-* (c) 2015 - 2023, hfiref0x
+* (c) hfiref0x tools/source 2015 - 2023, hfiref0x
