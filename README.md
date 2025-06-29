@@ -46,8 +46,11 @@ source\wdextract (for a more advanced version visit https://github.com/hfiref0x/
 source\DrvTools
 * Auxiliary utility to work with Windows Drivers
 
+source\NtCall_LogParser
+* Binary log parser for NTCALL64 v2+
+
 # Authors
 * (c) Daniloff & Co 
 * (c) Intel QV authors
 * (c) PHYMEM, MAPMEM, WINIO, WINRING0 authors
-* (c) hfiref0x tools/source 2015 - 2023, hfiref0x
+* (c) hfiref0x tools/source 2015 - 2025, hfiref0x
