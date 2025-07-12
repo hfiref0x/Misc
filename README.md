@@ -5,9 +5,6 @@
 docs
 * docs (mostly for historical purposes)
 
-bin
-* compiled versions of the some tools listed below
-
 source\ApiSetSchemaView
 * Windows ApiSetSchema Viewer (V2, V4, V6)
 
